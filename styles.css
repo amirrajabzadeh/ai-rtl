@@ -1,0 +1,55 @@
+/* ========================================
+   AI RTL Extension - استایل پایه
+   ساخته شده توسط امیر رجب زاده
+   ======================================== */
+
+/* فونت وزیر */
+@font-face {
+  font-family: "Vazir";
+  src: url("fonts/Vazir-FD-WOL.woff2") format("woff2"),
+    url("fonts/Vazir-FD-WOL.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Vazir";
+  src: url("fonts/Vazir-Bold-FD-WOL.woff2") format("woff2"),
+    url("fonts/Vazir-Bold-FD-WOL.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* استایل‌های عمومی - فقط فونت اعمال بشه، direction توی JS انجام میشه */
+.persian-text,
+.persian-text *,
+.persian-input,
+.persian-input *,
+.persian-message,
+.persian-message * {
+  font-family: "Vazir", "Segoe UI Historic", "Tahoma", sans-serif !important;
+}
+
+/* اطمینان از اعمال direction */
+[data-rtl-applied="true"] {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+[data-ltr-applied="true"] {
+  direction: ltr !important;
+  text-align: left !important;
+}
+
+/* ورودی‌ها */
+.persian-input {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+.english-input {
+  direction: ltr !important;
+  text-align: left !important;
+}

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI RTL Extension</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      width: 280px;
+      padding: 15px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      font-family: 'Vazir', 'Tahoma', sans-serif;
+    }
+    
+    .container {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 16px;
+      padding: 15px;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    
+    .logo {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 8px;
+    }
+    
+    h3 {
+      color: #333;
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+    
+    .version {
+      color: #888;
+      font-size: 10px;
+    }
+    
+    .creator {
+      color: #667eea;
+      font-size: 10px;
+      margin-top: 3px;
+    }
+    
+    .creator a {
+      color: #667eea;
+      text-decoration: none;
+    }
+    
+    .status-card {
+      background: #f0f0f0;
+      border-radius: 12px;
+      padding: 12px;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+    
+    .status-active {
+      background: #4caf50;
+      color: white;
+    }
+    
+    .status-inactive {
+      background: #f44336;
+      color: white;
+    }
+    
+    .toggle-btn {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-bottom: 10px;
+      font-family: inherit;
+    }
+    
+    .toggle-on {
+      background: #4caf50;
+      color: white;
+    }
+    
+    .toggle-off {
+      background: #f44336;
+      color: white;
+    }
+    
+    .toggle-btn:hover {
+      transform: scale(1.02);
+      opacity: 0.9;
+    }
+    
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      margin: 15px 0;
+      padding: 10px;
+      background: #f9f9f9;
+      border-radius: 10px;
+    }
+    
+    .stat-item {
+      text-align: center;
+    }
+    
+    .stat-number {
+      font-size: 18px;
+      font-weight: bold;
+      color: #667eea;
+    }
+    
+    .stat-label {
+      font-size: 10px;
+      color: #888;
+    }
+    
+    .footer {
+      text-align: center;
+      padding-top: 10px;
+      border-top: 1px solid #eee;
+      margin-top: 15px;
+    }
+    
+    .footer a {
+      color: #667eea;
+      text-decoration: none;
+      font-size: 11px;
+    }
+    
+    .support-btn {
+      background: #ff9800;
+      color: white;
+      border: none;
+      padding: 8px;
+      border-radius: 8px;
+      width: 100%;
+      margin-top: 10px;
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: bold;
+    }
+    
+    .developer {
+      text-align: center;
+      margin-top: 12px;
+      padding-top: 8px;
+      border-top: 1px solid #eee;
+      font-size: 10px;
+      color: #999;
+    }
+    
+    .developer a {
+      color: #667eea;
+      text-decoration: none;
+    }
+    
+    button {
+      font-family: inherit;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="icons/48.png" alt="Logo" class="logo">
+      <h3>✨ AI RTL (Persian/Farsi)</h3>
+      <div class="version">نسخه 1.0.0</div>
+      <div class="creator">
+        ساخته شده توسط <a href="https://amirrajabzadeh.ir" target="_blank">امیر رجب زاده</a>
+      </div>
+    </div>
+    
+    <div class="status-card">
+      <div id="statusBadge" class="status-badge status-active">
+        <span>🟢</span>
+        <span>فعال</span>
+      </div>
+    </div>
+    
+    <button id="toggleButton" class="toggle-btn toggle-on">
+      ✋ غیرفعال کردن
+    </button>
+    
+    <div class="stats">
+      <div class="stat-item">
+        <div class="stat-number">30+</div>
+        <div class="stat-label">پلتفرم پشتیبانی</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">رایگان</div>
+        <div class="stat-label">بدون هزینه</div>
+      </div>
+    </div>
+    
+    <button id="supportBtn" class="support-btn">
+      ☕ حمایت از توسعه
+    </button>
+    
+    <div class="footer">
+      <a href="#" id="reportLink">گزارش مشکل</a>
+      <span style="color: #ddd; margin: 0 5px;">|</span>
+      <a href="#" id="guideLink">راهنما</a>
+    </div>
+    
+    <div class="developer">
+      👨‍💻 توسعه‌دهنده: <a href="https://amirrajabzadeh.ir" target="_blank">امیر رجب زاده</a>
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>

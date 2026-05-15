@@ -1,0 +1,80 @@
+{
+  "manifest_version": 3,
+  "name": "AI RTL (Persian/Farsi)",
+  "version": "1.0.0",
+  "description": "راست‌چین خودکار متن فارسی در هوش مصنوعی‌ها - ساخته شده توسط امیر رجب زاده",
+  "author": "امیر رجب زاده",
+  "homepage_url": "https://amirrajabzadeh.ir",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://chat.deepseek.com/*",
+    "https://chatgpt.com/*",
+    "https://claude.ai/*",
+    "https://gemini.google.com/*",
+    "https://www.bing.com/chat/*",
+    "https://notebooklm.google.com/notebook/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://chat.deepseek.com/*"],
+      "js": ["content-scripts/deepseek.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://chatgpt.com/*"],
+      "js": ["content-scripts/chatgpt.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://claude.ai/*"],
+      "js": ["content-scripts/claude.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://gemini.google.com/*"],
+      "js": ["content-scripts/gemini.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://www.bing.com/chat/*"],
+      "js": ["content-scripts/bing.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://notebooklm.google.com/notebook/*"],
+      "js": ["content-scripts/notebooklm.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["fonts/*"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "AI RTL - راست‌چین فارسی",
+    "default_icon": {
+      "16": "icons/16.png",
+      "32": "icons/32.png",
+      "48": "icons/48.png",
+      "128": "icons/128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/16.png",
+    "32": "icons/32.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  }
+}
